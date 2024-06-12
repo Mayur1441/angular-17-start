@@ -1,0 +1,91 @@
+@if (viewMode){
+@if (currentTutorial.id){
+<h4>Ride Details:- </h4>
+<div>
+  <label><strong>To:</strong></label> {{ currentTutorial.to }}
+</div>
+<div>
+  <label><strong>From:</strong></label>
+  {{ currentTutorial.from }}
+</div>
+<div>
+  <label><strong>Fare:</strong></label> {{ currentTutorial.fare }} Rupee
+</div>
+<div>
+  <label><strong>Distance:</strong></label> {{ currentTutorial.distance }} Kilometer
+</div>
+<br>
+<h4>Passenger Details:- </h4>
+<div>
+  <label><strong>Name:</strong></label> {{ currentTutorial.user[0]!.firstname! }} {{ currentTutorial.user[0]!.lastname! }}
+</div>
+<div>
+  <label><strong>Mobile:</strong></label> {{ currentTutorial.user[0]!.mobile! }}
+</div>
+<div>
+  <label><strong>Email:</strong></label> {{ currentTutorial.user[0]!.email! }}
+</div>
+@if (completeRide == false){
+<button class="btn btn-success"
+(click)="takeride()">
+Take Ride
+</button>}
+@if (completeRide == true && currentTutorial.complete == false){
+<button class="btn btn-success"
+(click)="completeride()">
+Complete Ride
+</button>
+<button class="btn btn-danger"
+(click)="cancelride()">
+Cancel Ride
+</button>}
+@if (completeRide == true && currentTutorial.complete == true){
+<b><u>Ride Completed</u></b>
+}
+
+}} @else {
+@if (currentTutorial.id) {
+<div class="edit-form">
+  <h4>Rides</h4>
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        [(ngModel)]="currentTutorial.title"
+        name="title"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        [(ngModel)]="currentTutorial.description"
+        name="description"
+      />
+    </div>
+
+    <div class="form-group">
+      <label><strong>Status:</strong></label>
+      {{ currentTutorial.published ? "Published" : "Pending" }}
+    </div>
+  </form>
+
+  <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+    Delete
+  </button>
+
+  <button
+    type="submit"
+    class="badge badge-success mb-2"
+    (click)="updateTutorial()">
+    Update
+  </button>
+  <p>{{ message }}</p>
+</div>
+} @else {<p>Cannot access this Ride...</p>}
+  }

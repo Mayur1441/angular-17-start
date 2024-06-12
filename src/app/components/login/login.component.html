@@ -1,0 +1,36 @@
+<div>
+  <div class="submit-form">
+    @if (!submitted) {
+    <div class="form-group">
+      <label for="title">UserName</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        required
+        [(ngModel)]="login.username"
+        name="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Password</label>
+      <input
+        class="form-control"
+        id="description"
+        required
+        type="password"
+        [(ngModel)]="login.password"
+        name="password"
+      />
+    </div>
+    <button (click)="doLogin()" class="btn btn-success">Submit</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-success" href="/signup">Signup</a>
+    } @else {
+    <h4>Login successfully!</h4>
+    }
+  </div>
+
+</div>

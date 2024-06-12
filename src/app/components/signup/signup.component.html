@@ -1,0 +1,82 @@
+<div class="submit-form">
+  @if (!submitted) {
+  <div class="form-group">
+    <label for="title">First Name*</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      required
+      [(ngModel)]="login.firstname"
+      name="title"
+    />
+    <label for="title">Last Name*</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      required
+      [(ngModel)]="login.lastname"
+      name="title"
+    />
+    <label for="title">UserName*</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      required
+      [(ngModel)]="login.username"
+      name="title"
+    />
+    <label for="title">Mobile*</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      required
+      [(ngModel)]="login.mobile"
+      name="title"
+    />
+    <label for="description">Password*</label>
+    <input
+      class="form-control"
+      id="description"
+      type="password"
+      required
+      [(ngModel)]="login.password"
+      name="password"
+    />
+    <label for="description">Re-Password*</label>
+    <input
+      class="form-control"
+      id="description"
+      required
+      type="password"
+      [(ngModel)]="login.repassword"
+      name="password"
+    />
+    <label for="description">Email</label>
+    <input
+      class="form-control"
+      id="description"
+      required
+      [(ngModel)]="login.email"
+      name="email"
+    />
+    <label for="description">Role</label>
+    <select
+      class="form-control"
+      id="description"
+      required
+      [(ngModel)]="login.roles"
+      name="roles">
+      <option value="user">User</option>
+      <option value="driver">Driver</option>
+    </select>
+  </div>
+  <button (click)="doSignup()" class="btn btn-success">Submit</button>
+  <a class="btn btn-success" href="/login">Login</a>
+  } @else {
+  <h4>{{responsemsg}}</h4>
+  }
+</div>
